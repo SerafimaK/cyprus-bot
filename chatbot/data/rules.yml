@@ -1,0 +1,52 @@
+version: "3.1"
+
+rules:
+  - rule: Greet
+    steps:
+    - intent: greet
+    - action: utter_greet
+    - action: action_main
+
+  - rule: Help
+    steps:
+    - intent: help
+    - action: action_help
+
+  - rule: Goodbye (in main)
+    condition:
+    - slot_was_set:
+      - main_state: true
+    steps:
+    - intent: thanks
+    - action: utter_goodbye
+    - action: utter_goodbye_2
+    - action: action_main
+
+  - rule: Goodbye (others)
+    condition:
+    - slot_was_set:
+      - main_state: false
+    steps:
+    - intent: thanks
+    - action: action_any_questions
+
+  - rule: Documents
+    steps:
+    - intent: documents
+    - action: utter_documents
+    - action: action_documents
+  
+  - rule: Visas 
+    steps:
+    - intent: entry_visas
+    - action: action_visas
+  
+  - rule: Police clearance
+    steps:
+    - intent: police_clearance
+    - action: action_police_clearance
+  
+  - rule: Translation
+    steps:
+    - intent: translation
+    - action: action_translation

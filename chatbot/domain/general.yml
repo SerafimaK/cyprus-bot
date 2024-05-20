@@ -1,0 +1,151 @@
+version: "3.1"
+
+intents:
+  - greet
+  - help
+  - thanks
+  - another_question
+  - documents
+  - set_up_company
+  - taxation
+
+responses:
+  utter_start:
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        Hi there!👋 Here you can find a selection of important information for a comfortable start to life in Cyprus!
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        Привет! Здесь ты можешь найти подборку важной информации для комфортного начала жизни на Кипре!
+  utter_greet:
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        Hello! 👋🏼
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        Здравствуй! 👋🏼
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        Привет! 👋🏼
+  utter_fallback:
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        Unfortunately, I wasn't unable to understand your request. Try to phrase it differently.
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        I didn't quite understand your request. Write it differently, please.
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        К сожалению, не получилось распознать твой запрос. Попробуй сформулировать по другому.
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        Не совсем поняли твой запрос. Напиши его по-другому, пожалуйста.
+  utter_goodbye:
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        Get in touch!🍀
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        You are welcome!🍀
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |  
+        Пожалуйста!🍀
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        Обращайтесь!🍀
+  utter_goodbye_2:
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        I'm here if you want to read more information. 👍🏼
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        I'm always here if you want to know anything else. 🙌🏼
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |  
+        Я тут, если хочешь прочитать другую информацию. 👍🏼
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |  
+        Я всегда здесь, если захочешь узнать что нибудь еще. 🙌🏼
+
+slots:
+  language:
+    type: categorical
+    influence_conversation: false
+    values:
+    - russian
+    - english
+    mappings:
+    - type: custom
+  main_state:
+    type: bool
+    default_value: true
+    influence_conversation: false
+    mappings:
+    - type: from_intent
+      value: false
+      intent:
+        - documents
+        - set_up_company
+        - taxation
+
+actions:
+  - action_another_question
+  - action_any_questions
+  - action_help
+  - action_main
+  - action_session_start
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

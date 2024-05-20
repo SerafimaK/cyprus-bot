@@ -1,0 +1,39 @@
+version: "3.1"
+
+intents:
+  - entry_visas
+  - police_clearance
+  - translation
+
+responses:
+  utter_documents:
+    - condition:
+        - type: slot
+          name: language
+          value: english
+      text: |
+        Для релокации на Кипр требуется собрать пакет документов. Список документов зависит от типа ВНЖ, который тебе нужен. Тут есть краткая информация и ссылки на полезные ресурсы.
+    - condition:
+        - type: slot
+          name: language
+          value: russian
+      text: |
+        For relocation to Cyprus, you need to collect a package of documents. The list of documents depends on the type of residence permit you need. There is a summary and links to useful resources.
+
+actions:
+  - action_documents
+  - action_police_clearance
+  - action_translation
+  - action_visas
+          
+    # - condition:
+    #     - type: slot
+    #       name: language
+    #       value: english
+    #   text: |
+        
+    # - condition:
+    #     - type: slot
+    #       name: language
+    #       value: russian
+    #   text: |
