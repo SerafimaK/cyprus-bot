@@ -1,4 +1,5 @@
 import random
+from typing import List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet, SessionStarted, ActionExecuted
@@ -12,15 +13,19 @@ logger.setLevel(logging.DEBUG)
 class ActionSessionStart(Action):
 
     def name(self) -> str:
-        return "action_session_start"
+        return "start_message"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
-        events = [SessionStarted(),]
-        metadata = tracker.get_slot("session_started_metadata")
-        language = metadata.get("language")
-        logger.info(f"Chosen language: {language}")
-        # Set the language slot
-        events.append(SlotSet("language", language))
         dispatcher.utter_message(response="utter_start")
-        events.append(FollowupAction("action_main"))
-        return events
+        dispatcher.utter_message(response="utter_main")
+        return []
+
+
+class ActionFallbackHandler(Action):
+
+    def name(self) -> str:
+        return "fallback_handler"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
+        dispatcher.utter_message(response="utter_fallback")
+        return []

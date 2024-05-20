@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  rasa:
+    image: khalosa/rasa-aarch64:latest
+    ports:
+      - '5005:5005'
+    environment:
+      - TELEGRAM_ACCESS_TOKEN=${TELEGRAM_ACCESS_TOKEN}
+      - BOT_USERNAME=${BOT_USERNAME}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+    volumes:
+      - ./chatbot/models:/app/models
+      - ./chatbot/config:/app/config
+      - ./chatbot/data:/app/data
+      - ./chatbot/credentials.yml:/app/credentials.yml
+      - ./chatbot/endpoints.yml:/app/endpoints.yml
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+
+  action_server:
+    image: khalosa/rasa-aarch64:latest
+    ports:
+      - '5055:5055'
+    volumes:
+      - ./chatbot/actions:/app/actions
+    command:
+      - run
+      - actions

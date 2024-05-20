@@ -1,52 +1,127 @@
 version: "3.1"
 
 rules:
-  - rule: Greet
+  - rule: Conversation start
     steps:
-    - intent: greet
+    - intent: start
+    - action: start_message
+
+  - rule: Fallback
+    steps:
+    - intent: nlu_fallback
+    - action: fallback_handler
+
+  - rule: Greeting
+    steps:
+    - intent: greeting
     - action: utter_greet
-    - action: action_main
+    - action: utter_main
 
   - rule: Help
     steps:
     - intent: help
-    - action: action_help
+    - action: utter_help
 
-  - rule: Goodbye (in main)
-    condition:
-    - slot_was_set:
-      - main_state: true
+  - rule: Thanks (in main) | 1
     steps:
+    - action: utter_main
     - intent: thanks
     - action: utter_goodbye
     - action: utter_goodbye_2
-    - action: action_main
+    - action: utter_main
 
-  - rule: Goodbye (others)
-    condition:
-    - slot_was_set:
-      - main_state: false
+  - rule: Thanks (in main) | 2
+    steps:
+    - action: fallback_handler
+    - intent: thanks
+    - action: utter_goodbye
+    - action: utter_goodbye_2
+    - action: utter_main
+
+  - rule: Thanks (in main) | 3
+    steps:
+    - action: utter_help
+    - intent: thanks
+    - action: utter_goodbye
+    - action: utter_goodbye_2
+    - action: utter_main
+
+  - rule: Thanks (others)
     steps:
     - intent: thanks
-    - action: action_any_questions
+    - action: utter_any_questions
+
+  - rule: Another question
+    steps:
+    - intent: another_question
+    - action: utter_another_question
 
   - rule: Documents
     steps:
     - intent: documents
     - action: utter_documents
-    - action: action_documents
   
   - rule: Visas 
     steps:
     - intent: entry_visas
-    - action: action_visas
+    - action: utter_visas
   
   - rule: Police clearance
     steps:
     - intent: police_clearance
-    - action: action_police_clearance
+    - action: utter_police_clearance
   
   - rule: Translation
     steps:
     - intent: translation
-    - action: action_translation
+    - action: utter_translation
+
+  - rule: Back general
+    steps:
+    - intent: go_back
+    - action: utter_main
+
+  - rule: Back documents | visas
+    steps:
+    - action: utter_visas
+    - intent: go_back
+    - action: utter_documents
+
+  - rule: Back documents | police clearance
+    steps:
+    - action: utter_police_clearance
+    - intent: go_back
+    - action: utter_documents
+
+  - rule: Back documents | translation
+    steps:
+    - action: utter_translation
+    - intent: go_back
+    - action: utter_documents
+
+  - rule: Set up company | general
+    steps:
+    - intent: set_up_company
+    - action: utter_set_up_company
+
+  - rule: Set up company | topics
+    steps:
+    - or:
+      - intent: company_types
+      - intent: how_to_register
+      - intent: obligations_payments
+    - action: utter_set_up_company_topic
+
+  - rule: Taxation | general
+    steps:
+    - intent: taxation
+    - action: utter_taxation
+
+  - rule: Taxation | topics
+    steps:
+    - or:
+      - intent: become_tax_resident
+      - intent: tax_calculator
+      - intent: individual_taxation
+    - action: utter_taxation_topic
+    

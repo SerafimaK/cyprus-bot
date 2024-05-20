@@ -7,33 +7,52 @@ intents:
 
 responses:
   utter_documents:
-    - condition:
-        - type: slot
-          name: language
-          value: english
-      text: |
-        Для релокации на Кипр требуется собрать пакет документов. Список документов зависит от типа ВНЖ, который тебе нужен. Тут есть краткая информация и ссылки на полезные ресурсы.
-    - condition:
-        - type: slot
-          name: language
-          value: russian
-      text: |
+    - text: |
         For relocation to Cyprus, you need to collect a package of documents. The list of documents depends on the type of residence permit you need. There is a summary and links to useful resources.
-
-actions:
-  - action_documents
-  - action_police_clearance
-  - action_translation
-  - action_visas
-          
-    # - condition:
-    #     - type: slot
-    #       name: language
-    #       value: english
-    #   text: |
-        
-    # - condition:
-    #     - type: slot
-    #       name: language
-    #       value: russian
-    #   text: |
+      button_type: vertical
+      buttons:
+        - title: Visas for entry
+          payload: /entry_visas
+        - title: Police clearance certificate
+          payload: /police_clearance
+        - title: Translation of documents
+          payload: /translation
+        - title: Another question
+          payload: /another_question
+  utter_police_clearance:
+    - text: |
+        ⚖️ Police clearance certificate in Cyprus
+        Having lived in Cyprus for six months or more, you can get a Cypriot certificate of good conduct.
+        The certificate is issued at the main police station in Nicosia on weekdays until 15:00. To receive a certificate, you must fill out and sign an application.
+        Download form
+        📍 Address: Cyprus Police Headquarters Nicosia 1478, Cyprus
+        Phone: +357 (22) 808944
+        http://www.police.gov.cy
+        ❗You need to have copies and originals of your passport and PinkSlip with you.
+      button_type: vertical
+      buttons:
+        - title: Back
+          payload: /go_back
+        - title: Thanks
+          payload: /thanks
+  utter_translation:
+    - text: |
+        💬 If you need to translate documents, you can find a certified translator in the registry: https://www.pio.gov.cy/en/register-of-sworn-translators.html
+      button_type: vertical
+      buttons:
+        - title: Back
+          payload: /go_back
+        - title: Thanks
+          payload: /thanks
+  utter_visas:
+    - text: |
+        Citizens of EU countries and holders of residence permits of these countries don't need a visa to enter Cyprus.
+        Third-country nationals can enter Cyprus with a Schengen visa or with a Cypriot national visa.
+        To find complete information about visas and rules for staying in Cyprus, you can check the website of the Migration Department:
+        http://www.moi.gov.cy/moi/crmd/crmd.nsf/home_en/home_en?openform
+      button_type: vertical
+      buttons:
+        - title: Back
+          payload: /go_back
+        - title: Thanks
+          payload: /thanks

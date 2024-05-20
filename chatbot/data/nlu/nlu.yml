@@ -1,0 +1,228 @@
+version: "3.1"
+
+nlu:
+- intent: start
+  examples: |
+    - /start
+    - start
+    
+- intent: greeting
+  examples: |
+    - Hi
+    - Hello
+    - Good day
+    - Greetings
+    - Hey
+    - Hi there
+    - Good evening
+    - Hello, how are you?
+    - Hi, how's it going?
+
+- intent: help
+  examples: |
+    - What can you do?
+    - What are your functions?
+    - How can you help?
+    - What are you capable of?
+    - What can you offer?
+    - What are your skills?
+    - Tell me what you can do
+    - What do you know?
+    - What services do you provide?
+    - How can you assist me?
+
+- intent: thanks
+  examples: |
+    - Thank you
+    - Thanks
+    - No, thank you
+    - No, that's all
+    - No, that's it, thanks
+    - No questions
+    - Thank you very much
+    - Many thanks
+    - Thanks, that's all I need
+    - I appreciate it
+    - No, nothing else
+    - No, everything is clear, thanks
+    - No, I don't need anything
+    - No more questions
+    - Thanks, that's all
+
+- intent: another_question
+  examples: |
+    - I have another question.
+    - Can I ask another question?
+    - I need to ask something else.
+    - I have one more question.
+    - Can I ask you another question?
+    - There's something else I want to know.
+    - I have a different question.
+    - I want to ask another question.
+    - Can I ask you something else?
+    - I have another inquiry.
+
+- intent: go_back
+  examples: |
+    - Go back
+    - Back
+    - Previous
+    - Return
+    - Back to menu
+    - Go to previous step
+
+- intent: entry_visas
+  examples: |
+    - What are the visa requirements for entry to Cyprus?
+    - How do I get an entry visa for Cyprus?
+    - Tell me about visas for entry.
+    - What types of visas are available for entry?
+    - Do I need a visa to enter Cyprus?
+    - How can I apply for an entry visa?
+    - What is needed for an entry visa to Cyprus?
+    - Can you explain the entry visa process?
+    - What are the entry visa options?
+    - How do entry visas work for Cyprus?
+
+- intent: police_clearance
+  examples: |
+    - How do I get a police clearance certificate?
+    - What is the process for obtaining a police clearance certificate?
+    - Tell me about the police clearance certificate.
+    - Do I need a police clearance certificate?
+    - How can I apply for a police clearance certificate?
+    - What is required for a police clearance certificate?
+    - Can you explain the police clearance certificate process?
+    - What documents are needed for a police clearance certificate?
+    - How long does it take to get a police clearance certificate?
+    - Where do I get a police clearance certificate?
+
+- intent: translation
+  examples: |
+    - How do I get documents translated?
+    - What is the process for translating documents?
+    - Tell me about document translation.
+    - Do I need to translate my documents?
+    - How can I get my documents translated?
+    - What are the requirements for document translation?
+    - Can you explain the document translation process?
+    - Where can I get documents translated?
+    - How long does it take to translate documents?
+    - What services are available for document translation?
+
+- intent: documents
+  examples: |
+    - What documents do I need?
+    - Tell me about the required documents.
+    - What are the necessary documents?
+    - How do I obtain the necessary documents?
+    - Can you list the required documents?
+    - What documents are needed for the process?
+    - How do I get the documents I need?
+    - What paperwork is required?
+    - What documents are required?
+    - Can you provide a list of necessary documents?
+
+- intent: set_up_company
+  examples: |
+    - How do I set up a company in Cyprus?
+    - What is the process to set up a company?
+    - Tell me how to set up a company.
+    - What do I need to set up a company?
+    - Steps to set up a company in Cyprus?
+    - How can I set up my own company?
+    - Guide me on setting up a company.
+    - What are the requirements to set up a company?
+    - How do I start setting up a company?
+    - Can you explain the process to set up a company?
+
+- intent: taxation
+  examples: |
+    - How does taxation work in Cyprus?
+    - Tell me about taxation in Cyprus.
+    - What are the tax rates in Cyprus?
+    - Explain the taxation system in Cyprus.
+    - How is taxation handled in Cyprus?
+    - What is the tax system in Cyprus?
+    - Details about taxation in Cyprus.
+    - How much tax do I need to pay in Cyprus?
+    - Can you describe the taxation process?
+    - What are the rules for taxation in Cyprus?
+
+- intent: company_types
+  examples: |
+    - What are the main types of companies in Cyprus?
+    - Can you list the different types of companies?
+    - Tell me about the various company types.
+    - What kinds of companies can I set up?
+    - Different types of companies in Cyprus?
+    - Explain the main company types.
+    - What are the categories of companies?
+    - Could you describe the main types of companies?
+    - How many types of companies are there in Cyprus?
+    - What are the different forms of companies?
+
+- intent: how_to_register
+  examples: |
+    - How do I register a company in Cyprus?
+    - Steps to register a company in Cyprus?
+    - What is the process to register a company?
+    - How can I start a company in Cyprus?
+    - What do I need to register a company?
+    - Guide me on how to register a company in Cyprus.
+    - What are the requirements for company registration in Cyprus?
+    - How to get a company registered?
+    - Can you tell me how to register a business in Cyprus?
+    - What are the steps to set up a company in Cyprus?
+
+- intent: obligations_payments
+  examples: |
+    - What are the obligations and payments for a company?
+    - Tell me about the fees and obligations for companies.
+    - What payments do companies need to make?
+    - Explain the obligations and payments for businesses.
+    - What are the financial obligations for a company?
+    - What fees do I need to pay for my company?
+    - Can you list the obligations and payments for companies?
+    - What are the payment requirements for businesses?
+    - What financial responsibilities do companies have?
+    - Tell me about the necessary fees and obligations for a company.
+
+- intent: become_tax_resident
+  examples: |
+    - How do I become a tax resident in Cyprus?
+    - What are the steps to become a tax resident in Cyprus?
+    - Can you tell me how to become a tax resident?
+    - What is required to become a tax resident in Cyprus?
+    - Process to become a tax resident in Cyprus?
+    - How can I achieve tax residency in Cyprus?
+    - Guide me on becoming a tax resident in Cyprus.
+    - What do I need to do to become a tax resident in Cyprus?
+    - Steps to achieve tax residency in Cyprus?
+    - How do I get tax residency in Cyprus?
+
+- intent: tax_calculator
+  examples: |
+    - Can I use a tax calculator for Cyprus?
+    - Where can I find a tax calculator?
+    - Do you have a tax calculator?
+    - I need a tax calculator for Cyprus.
+    - Show me a tax calculator.
+    - Provide a tax calculator for Cyprus.
+    - How do I calculate my taxes?
+    - Is there a tax calculator available?
+    - Can you calculate my taxes for Cyprus?
+    - Where is the tax calculator?
+
+- intent: individual_taxation
+  examples: |
+    - How does individual taxation work in Cyprus?
+    - Tell me about individual taxation in Cyprus.
+    - What are the individual tax rates in Cyprus?
+    - Explain individual taxation.
+    - How are individuals taxed in Cyprus?
+    - What is the individual tax system in Cyprus?
+    - Details about individual taxation in Cyprus.
+    - How much tax do individuals pay in Cyprus?
+    - Can you describe individual taxation?
+    - What are the rules for individual taxation in Cyprus?

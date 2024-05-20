@@ -1,0 +1,39 @@
+version: "3.1"
+
+intents:
+  - company_types
+  - how_to_register
+  - obligations_payments
+
+responses:
+  utter_set_up_company:
+    - text: |
+        Here you can find basic information on starting your company in Cyprus.
+      button_type: vertical
+      buttons:
+        - title: Main types of companies
+          payload: /company_types
+        - title: How to register a company in Cyprus
+          payload: /how_to_register
+        - title: Obligations and payments (Fees)
+          payload: /obligations_payments
+        - title: Another question
+          payload: /another_question
+  utter_set_up_company_topic:
+    - text: |
+        Your topic: {topic_company}
+
+slots: 
+  topic_company:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_intent
+      value: Main types of companies
+      intent: company_types
+    - type: from_intent
+      value: How to register a company in Cyprus
+      intent: how_to_register
+    - type: from_intent
+      value: Obligations and payments (Fees)
+      intent: obligations_payments

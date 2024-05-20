@@ -1,0 +1,39 @@
+version: "3.1"
+
+intents:
+  - become_tax_resident
+  - tax_calculator
+  - individual_taxation
+
+responses:
+  utter_taxation:
+    - text: |
+        Understanding taxes is very important when you arrive in a new country. Here is the starting information for you.
+      button_type: vertical
+      buttons:
+        - title: How to become a tax resident in Cyprus
+          payload: /become_tax_resident
+        - title: Tax calculator
+          payload: /tax_calculator
+        - title: Individual taxation
+          payload: /individual_taxation
+        - title: Another question
+          payload: /another_question
+  utter_taxation_topic:
+    - text: |
+        Your topic: {topic_tax}
+
+slots: 
+  topic_tax:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_intent
+      value: How to become a tax resident in Cyprus
+      intent: become_tax_resident
+    - type: from_intent
+      value: Tax calculator
+      intent: tax_calculator
+    - type: from_intent
+      value: Individual taxation
+      intent: individual_taxation
