@@ -10,6 +10,7 @@ intents:
   - documents
   - set_up_company
   - taxation
+  - ask_about_cyprus_living
 
 responses:
   utter_start:
@@ -131,6 +132,7 @@ responses:
 
 actions:
   - start_message
+  - generate_response
   - fallback_handler
 
 session_config:

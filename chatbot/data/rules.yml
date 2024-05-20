@@ -11,6 +11,11 @@ rules:
     - intent: nlu_fallback
     - action: fallback_handler
 
+  - rule: Generate response
+    steps:
+    - intent: ask_about_cyprus_living
+    - action: generate_response
+
   - rule: Greeting
     steps:
     - intent: greeting

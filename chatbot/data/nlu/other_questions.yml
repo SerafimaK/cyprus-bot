@@ -1,0 +1,33 @@
+version: "3.1"
+
+nlu:
+- intent: ask_about_cyprus_living
+  examples: |
+    - Where can I find rental properties in Cyprus?
+    - What are the main websites for finding apartments in Cyprus?
+    - Can you list some sites to search for rental houses in Cyprus?
+    - How do I find an apartment to rent in Cyprus?
+    - Tell me some websites for renting properties in Cyprus.
+    - What should I consider when renting a property in Cyprus?
+    - Do you have any tips for renting an apartment in Cyprus?
+    - What are some common issues with rental properties in Cyprus?
+    - What should I check before renting a house in Cyprus?
+    - Can you give me some advice for renting a flat in Cyprus?
+    - Which banks are popular in Cyprus?
+    - What are the major banks in Cyprus?
+    - Can you tell me about the banks in Cyprus?
+    - Where can I open a bank account in Cyprus?
+    - List some banks in Cyprus.
+    - How is the water supply in Cyprus?
+    - What should I know about water in Cyprus?
+    - Is the water in Cyprus good quality?
+    - Do I need a water filter in Cyprus?
+    - How do residents in Cyprus heat their water?
+    - Tell me about the water heating systems in Cyprus.
+    - Are there any specific tips for managing water supply in Cyprus?
+    - What are the options for hot water in Cyprus homes?
+    - How can I pay for utilities in Cyprus?
+    - Explain the garbage sorting system in Cyprus.
+    - How do I dispose of waste in Cyprus?
+    - What are the emergency numbers in Cyprus?
+    - Who do I call in case of an emergency in Cyprus?

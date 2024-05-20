@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   rasa:
-    image: khalosa/rasa-aarch64:latest
+    image: khalosa/rasa-aarch64:3.5.2
     ports:
       - '5005:5005'
     environment:
@@ -23,11 +23,10 @@ services:
       - "*"
 
   action_server:
-    image: khalosa/rasa-aarch64:latest
+    build: .
+    environment:
+      - 127.0.0.1=host.docker.internal
     ports:
       - '5055:5055'
     volumes:
       - ./chatbot/actions:/app/actions
-    command:
-      - run
-      - actions

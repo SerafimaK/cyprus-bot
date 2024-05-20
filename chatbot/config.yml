@@ -16,7 +16,7 @@ pipeline:
     constrain_similarities: true
     entity_recognition: false
   - name: FallbackClassifier
-    threshold: 0.3
+    threshold: 0.5
     ambiguity_threshold: 0.2
 
 policies: 
