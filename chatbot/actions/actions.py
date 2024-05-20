@@ -2,7 +2,7 @@ import random
 from typing import List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import FollowupAction, SlotSet, SessionStarted, ActionExecuted
+from rasa_sdk.events import FollowupAction, SlotSet, SessionStarted, ActionExecuted, Restarted
 import logging
 
 
@@ -18,7 +18,7 @@ class ActionSessionStart(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
         dispatcher.utter_message(response="utter_start")
         dispatcher.utter_message(response="utter_main")
-        return []
+        return [Restarted()]
 
 
 class ActionFallbackHandler(Action):

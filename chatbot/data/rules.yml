@@ -46,6 +46,14 @@ rules:
     - action: utter_goodbye_2
     - action: utter_main
 
+  - rule: Thanks (in main) | 4
+    steps:
+    - action: utter_any_questions
+    - intent: thanks
+    - action: utter_goodbye
+    - action: utter_goodbye_2
+    - action: utter_main
+
   - rule: Thanks (others)
     steps:
     - intent: thanks

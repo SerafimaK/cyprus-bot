@@ -161,3 +161,4 @@ cython_debug/
 
 .rasa/
 chatbot/models/*
+.DS_Store

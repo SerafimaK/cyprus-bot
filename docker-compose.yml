@@ -17,6 +17,7 @@ services:
       - ./chatbot/endpoints.yml:/app/endpoints.yml
     command:
       - run
+      - -vv
       - --enable-api
       - --cors
       - "*"
